@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: build-suite-test-component-image-url-tsts
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: build-suite-test-component-image-url-tsts
+    app.kubernetes.io/part-of: test-app-iuwj
+  name: build-suite-test-component-image-url-tsts
+  namespace: build-e2e-specific-image-url-jjoa
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: build-suite-test-component-image-url-tsts
+    weight: 100
+status: {}
